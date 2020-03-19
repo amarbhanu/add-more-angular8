@@ -1,0 +1,111 @@
+<h1>Edit Product</h1>
+
+
+<form class="form-horizontal" [formGroup]="batchPlanningForm" (ngSubmit)="onSubmitDetail(batchPlanningForm.value)">      
+    <!--
+      <div class="col-xs-12 col-sm-2 col-md-2 pull-left">
+			 <button type="button" class="btn btn-primary mr10" (click)="addSellingPoint()"><i class="fa fa-plus"></i>Add more </button>
+		</div>
+    --> 
+    <!--test-->
+        <div class="col-xs-12 col-sm-2 col-md-2 pull-left">
+        <button type="button" class="btn btn-primary mr10" (click)="addSellingPoint()"><i class="fa fa-plus"></i>Add </button>
+        <button type="button" class="btn btn-danger"  (click)="deleteSellingPoint()"><i class="fa fa-minus"></i>Delete</button>
+        </div>
+    <!--test-->
+
+    <div class="col-xs-12 col-sm-12 col-md-12 pull-left">
+    <div class="row mb15">  
+      <div class="col-xs-12 col-sm-2 col-md-2 pull-left"><strong>Lecturer Type</strong></div> 
+      <div class="col-xs-12 col-sm-2 col-md-2 pull-left"><strong>Subject</strong></div>  
+      <div class="col-xs-12 col-sm-2 col-md-2 pull-left"><strong>Teacher</strong></div>  
+      <div class="col-xs-12 col-sm-2 col-md-2 pull-left"><strong>Start Time</strong></div>  
+      <div class="col-xs-12 col-sm-2 col-md-2 pull-left"><strong>End Time</strong></div>
+     </div>
+   	</div>
+  <!--***-->
+   <div class="col-xs-12 col-sm-12 col-md-12 pull-left">
+        <div class="row mb15" *ngFor="let item of length_arr; let i=index" >
+
+    <div class="col-xs-12 col-sm-2 col-md-2 pull-left" id="lecher_type"> 
+            <div formArrayName="lecher_type">
+                <input type="text" class="form-control required" value="" [formControlName]='i'  placeholder="lecher_type" title="Please insert lecher_type" autofocus=""     />   
+            </div>
+    </div>
+
+
+    <div class="col-xs-12 col-sm-2 col-md-2 pull-left" id="subject">
+              <div formArrayName="subject">
+               <input type="text" class="form-control required" value="" [formControlName]='i'  placeholder="subject" title="Please insert subject" autofocus=""     />  
+              </div>
+    </div>
+
+     <div class="col-xs-12 col-sm-2 col-md-2 pull-left" id="teacher">
+              <div formArrayName="teacher">
+              <input type="text" class="form-control required" value="" [formControlName]='i'  placeholder="teacher" title="Please insert teacher" autofocus=""     />  
+              </div> 
+      </div>
+
+      <div class="col-xs-12 col-sm-2 col-md-2 pull-left" id="start_time">
+              <div formArrayName="start_time">
+        <input type="time" class="form-control required" value="" [formControlName]='i'  placeholder="start time" title="Please insert start time" autofocus=""    />  
+              </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-2 col-md-2 pull-left" id="end_time">
+          <div formArrayName="end_time"><input type="time" class="form-control required" [attr.disabled]="true" value="" [formControlName]='i' placeholder="end time"          title="Please insert end time" autofocus=""   />         </div>
+      </div>
+
+    </div>
+    </div>    
+
+  <!--Submit-->
+<div class="col-xs-12 col-sm-12 col-md-12 pull-right mt15 mb20">     
+     <input type="submit" value="Save" class="btn btn-primary" />
+</div>
+
+  <!--Submit-->
+			
+        <!--   
+			
+           
+			
+           
+			
+		   
+			-->
+
+  <!--**-->
+
+</form>    
+
+
+
+
+<!--
+<form [formGroup]="productForm">
+
+  <label>
+    Title: <input formControlName="title" />
+  </label>
+  <h2>Selling Points</h2>
+
+  <div formArrayName="selling_points">
+    <div *ngFor="let item of sellingPoints.controls; let pointIndex=index" [formGroupName]="pointIndex">
+    <label>
+      Selling Point: <input formControlName="point" />
+    </label>
+     <label>
+      Selling Subject: <input formControlName="subject" />
+    </label>
+    <button type="button" (click)="deleteSellingPoint(pointIndex)">Delete Selling Point</button>
+    </div>
+    <button type="button" (click)="addSellingPoint()">Add Selling Point</button>
+  </div>
+
+</form>
+
+{{ this.productForm.value | json }}
+
+
+-->
